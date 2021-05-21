@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node dist/app.js"
+    "start": "tsc && node dist/app.js",
+    "dev": "tsc && export PORT=3001 MONGO_URL=mongodb+srv://root:h2PpE0Pspsww20jH@cluster0.dubid.mongodb.net/Counter && node dist/app.js"
   },
   "author": "",
   "license": "ISC",

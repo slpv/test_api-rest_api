@@ -1,21 +1,21 @@
 import express from 'express';
-import IResponse from "./interfaces/IResponse";
-import App from "./service/App";
 import counterRoutes from './routes/counter';
+import {url, options} from './db';
+import {connect} from "mongoose";
 
-const config = require('./../config/CONFIG.json');
+const port = process.env.PORT || 8080;
 
-export const app1: App = new App("Counter", express(), config);
+export const app1 = express();
 
-// All, '/counter'
-app1.express.use(counterRoutes);
-app1.start()
-    .then((result: IResponse) => {
-        console.log(result.message);
-    })
-    .catch((error) => {
-        console.error('UE', {error});
-    });
-
-
-export default app1;
+// [all], '/counter'
+app1.use(counterRoutes);
+console.log(url);
+app1.listen(port, () => {
+    connect(url, options)
+        .then(() => {
+            console.log('DB is connected');
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+});
