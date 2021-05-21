@@ -1,0 +1,8 @@
+{
+  "PORT": null,
+  "MONGO": {
+    "USER": "user",
+    "PASSWORD": "password",
+    "URI": "fullURIWithHiddenParams"
+  }
+}
