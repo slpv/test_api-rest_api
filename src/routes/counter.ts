@@ -4,7 +4,7 @@ import CounterController from "../controllers/CounterController";
 
 const router = Router();
 
-router.all('/count', async (req: Request, res: Response) => {
+router.post('/count', async (req: Request, res: Response) => {
     CounterController.increment(1)
         .then((result) => {
             if (result.status) {
